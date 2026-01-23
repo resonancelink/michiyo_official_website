@@ -167,19 +167,15 @@ body {
     overflow: hidden;
 }
 
+/* 画像ラッパー: アニメーション復元 */
 .hero-image-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-@media (min-width: 1281px) {
-    .hero-image-wrapper {
-        opacity: 0;
-        animation: fadeInImage 1.5s ease-out 0.3s forwards;
-    }
+    opacity: 0;
+    animation: fadeInImage 1.5s ease-out 0.3s forwards;
 }
 
 .hero-image {
@@ -201,6 +197,7 @@ body {
             rgba(212, 230, 212, 0.1) 100%);
 }
 
+/* コンテンツ: アニメーション復元 */
 .hero-content {
     position: relative;
     z-index: 2;
@@ -208,13 +205,8 @@ body {
     max-width: 600px;
     padding: 0 40px;
     margin-left: 8%;
-}
-
-@media (min-width: 1281px) {
-    .hero-content {
-        opacity: 0;
-        animation: fadeInUp 1.2s ease-out 0.8s forwards;
-    }
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out 0.8s forwards;
 }
 
 .hero-title {
@@ -240,14 +232,9 @@ body {
     margin: 16px 0 24px;
     transform: rotate(-3deg);
     transform-origin: left center;
-}
-
-@media (min-width: 1281px) {
-    .hero-signature {
-        opacity: 0;
-        clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
-        animation: drawSignature 2s ease-in-out 1.2s forwards, fadeIn 0.5s ease-out 1.2s forwards;
-    }
+    opacity: 0;
+    clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+    animation: drawSignature 2s ease-in-out 1.2s forwards, fadeIn 0.5s ease-out 1.2s forwards;
 }
 
 @keyframes drawSignature {
@@ -266,13 +253,8 @@ body {
     letter-spacing: 0.2em;
     color: var(--color-text);
     font-weight: 400;
-}
-
-@media (min-width: 1281px) {
-    .hero-subtitle {
-        opacity: 0;
-        animation: fadeInUp 1s ease-out 2.5s forwards;
-    }
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 2.5s forwards;
 }
 
 .scroll-indicator {
@@ -285,13 +267,8 @@ body {
     align-items: center;
     z-index: 10;
     padding-left: 40px;
-}
-
-@media (min-width: 1281px) {
-    .scroll-indicator {
-        opacity: 0;
-        animation: fadeIn 1s ease-out 1.5s forwards;
-    }
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.5s forwards;
 }
 
 .scroll-indicator span {
