@@ -1,0 +1,200 @@
+{
+  "name": "Michiyo Oracle Cards — Authoring Settings",
+  "version": "1.0.0",
+  "updated_at": "2025-10-27T03:42:58.335563",
+  "extends": [
+    "michiyo_ai_settings.json",
+    "michiyo_ai_settings_voice.json"
+  ],
+  "purpose": "Generate new oracle card texts in Michiyo's voice with consistent tone, structure, and deck-wide continuity.",
+  "deck_policy": {
+    "continuity": "Each card should feel like a step in a gentle journey (Awakening → Acceptance → Healing → Creation → Blessing).",
+    "reader_positioning": "Speak to 'you'; offer reassurance first, then simple guidance.",
+    "no_dogma": "Avoid strict rules; encourage friendship with the deck and playful trust.",
+    "reversals": "Optional. If used, treat as 'care guidance' (never punitive).",
+    "copyright_note": "Do not reuse verbatim past card texts; always paraphrase and refresh."
+  },
+  "card_schema": {
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "example": "A-01"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "constraints": {
+          "max_chars": 18
+        }
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": true,
+        "constraints": {
+          "max_lines": 5,
+          "max_chars": 220
+        }
+      },
+      {
+        "name": "guidance",
+        "type": "string",
+        "required": true,
+        "constraints": {
+          "max_lines": 3,
+          "max_chars": 140
+        }
+      },
+      {
+        "name": "affirmation",
+        "type": "string",
+        "required": true,
+        "starts_with": "わたしは",
+        "constraints": {
+          "max_chars": 80
+        }
+      },
+      {
+        "name": "keywords",
+        "type": "array",
+        "required": true,
+        "constraints": {
+          "min_items": 3,
+          "max_items": 5
+        }
+      },
+      {
+        "name": "reversed",
+        "type": "string",
+        "required": false,
+        "role": "care tips; never negative",
+        "constraints": {
+          "max_chars": 140
+        }
+      },
+      {
+        "name": "phase",
+        "type": "string",
+        "enum": [
+          "Awakening",
+          "Acceptance",
+          "Healing",
+          "Creation",
+          "Blessing"
+        ],
+        "required": true
+      }
+    ]
+  },
+  "tone_style": {
+    "address": "second_person",
+    "tone": [
+      "soft",
+      "benevolent",
+      "luminous"
+    ],
+    "rhythm": "short sentences with line breaks; breathing space.",
+    "endings": [
+      "〜していいんです",
+      "〜しましょう",
+      "〜ですね"
+    ],
+    "avoid": [
+      "fear-based warnings",
+      "harsh imperatives",
+      "難解な専門用語"
+    ]
+  },
+  "length_rules": {
+    "title_max_chars": 18,
+    "message_max_chars": 220,
+    "guidance_max_chars": 140,
+    "affirmation_max_chars": 80
+  },
+  "templates": {
+    "card_minimal": {
+      "title": "光は、ここに",
+      "message": "あなたのハートの奥で\n静かな灯がともっています。\n探さなくていい。\n思い出すだけで、光は拡がる。",
+      "guidance": "足元の安らぎを最優先に。小さな深呼吸から。",
+      "affirmation": "わたしは内なる光を今、受け取ります。",
+      "keywords": [
+        "内在の光",
+        "思い出す",
+        "安らぎ"
+      ],
+      "phase": "Awakening"
+    },
+    "card_prompt_recipe": "次のJSONスキーマに従って、みちよ文体で1枚生成してください。phaseを{phase}に設定し、キーワード候補{keywords}を1〜2語含め、必ず『わたしは』で始まるアファメーションを入れてください。"
+  },
+  "keywords_library": {
+    "Awakening": [
+      "光",
+      "目覚め",
+      "静けさ",
+      "気づき",
+      "はじまり"
+    ],
+    "Acceptance": [
+      "受容",
+      "許し",
+      "自己愛",
+      "安らぎ",
+      "やわらかさ"
+    ],
+    "Healing": [
+      "解放",
+      "休息",
+      "浄化",
+      "慈しみ",
+      "抱きしめる"
+    ],
+    "Creation": [
+      "喜び",
+      "選択",
+      "一致",
+      "流れ",
+      "共鳴"
+    ],
+    "Blessing": [
+      "感謝",
+      "祝福",
+      "調和",
+      "満ちる",
+      "恩寵"
+    ]
+  },
+  "validation_checklist": [
+    "タイトルは18文字以内か？",
+    "本文は5行以内・220文字以内か？",
+    "ガイダンスは具体的で、行動を1つに絞っているか？",
+    "アファメーションは『わたしは〜』で現在形か？",
+    "キーワードは3〜5語か？",
+    "禁止表現（恐れ・断罪・命令口調）を使っていないか？"
+  ],
+  "sampling_controls": {
+    "novelty": "0.55〜0.7（既存と重複しない比喩を優先）",
+    "warmth_bias": 0.2,
+    "coherence_bias": 0.3
+  },
+  "export": {
+    "csv_columns": [
+      "id",
+      "title",
+      "message",
+      "guidance",
+      "affirmation",
+      "keywords",
+      "reversed",
+      "phase"
+    ],
+    "filename_suggestion": "michiyo_oracle_cards_draft.csv"
+  },
+  "how_to_use": [
+    "1) 既存カード一覧（Excel）で重複語を避けたい領域を把握。",
+    "2) 生成時はphaseを均等に配分し、物語の連続性をチェック。",
+    "3) 生成後、読み合わせで声の“間”を確認し微修正。"
+  ]
+}
