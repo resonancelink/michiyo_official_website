@@ -6,13 +6,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MICHIYO - Spiritual Counsellor</title>
     <meta name="description" content="スピリチュアル作家・みちよの公式サイト。引き寄せの法則、天使とのつながり、自己愛をテーマにした書籍、オラクルカード、講座をご紹介します。">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=10">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="./favicon.png?v=4">
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Pinyon+Script&display=swap"
         rel="stylesheet">
+    <style>
+        /* 緊急レスポンシブ修正: スマホ・iPadでの表示崩れと位置調整 */
+        @media screen and (max-width: 1280px) {
+
+            /* ヒーローセクションの基本設定 */
+            .hero {
+                position: relative !important;
+                height: 100vh !important;
+                min-height: 600px !important;
+                display: block !important;
+                padding: 0 !important;
+                overflow: hidden !important;
+            }
+
+            /* 画像の位置: 顔（上部）を隠さないように調整 */
+            .hero-image-wrapper {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                z-index: 1 !important;
+                animation: none !important;
+                /* アニメーション停止 */
+                opacity: 1 !important;
+            }
+
+            .hero-image {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: 50% 15% !important;
+                /* 顔を中心に */
+            }
+
+            /* テキストコンテンツ: 画面の最下部に強制配置 */
+            .hero-content {
+                position: absolute !important;
+                bottom: 60px !important;
+                /* 下からの距離 */
+                left: 20px !important;
+                right: 20px !important;
+                top: auto !important;
+                width: auto !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                z-index: 100 !important;
+                text-align: left !important;
+
+                /* アニメーション・変形を全解除して即時表示 */
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+                transition: none !important;
+
+                /* 視認性確保のための影 */
+                text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.6) !important;
+            }
+
+            /* テキスト要素ごとの調整 */
+            .hero-title {
+                font-size: 26px !important;
+                line-height: 1.4 !important;
+                margin-bottom: 5px !important;
+                color: #2C3E2C !important;
+                animation: none !important;
+                opacity: 1 !important;
+            }
+
+            .hero-signature {
+                font-size: 42px !important;
+                margin: 5px 0 10px !important;
+                color: #2C3E2C !important;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: rotate(-3deg) !important;
+                clip-path: none !important;
+            }
+
+            .hero-subtitle {
+                font-size: 11px !important;
+                color: #2C3E2C !important;
+                font-weight: 600 !important;
+                animation: none !important;
+                opacity: 1 !important;
+            }
+
+            /* 邪魔な要素を消す */
+            .scroll-indicator {
+                display: none !important;
+            }
+        }
+
+        /* スマホ向けの微調整 */
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                bottom: 40px !important;
+                left: 20px !important;
+            }
+
+            .hero-image {
+                object-position: 50% 10% !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -38,7 +143,7 @@
     <!-- ヒーローセクション -->
     <section id="home" class="hero">
         <div class="hero-image-wrapper">
-            <img src="images/hero_forest_v3.png" alt="Michiyo - Spiritual Writer / Messenger" class="hero-image">
+            <img src="images/hero_main_2026.png" alt="Michiyo - Spiritual Writer / Messenger" class="hero-image">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -163,45 +268,59 @@
             </p>
 
             <div class="books-grid">
+                <!-- 1. book1 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book1.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 2. book2 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book2.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 3. book3 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book3.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 4. 引き寄せの法則 つかいこなしブック (book11.jpg) [元5つ目だが、1つ移動したので4番目になる] -->
+                <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
+                    target="_blank" rel="noopener noreferrer" class="book-item">
+                    <img src="images/book11.jpg?v=resized" alt="引き寄せの法則 つかいこなしブック">
+                </a>
+                <!-- 5. book4 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book4.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 6. book5 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book5.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 7. book6 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book6.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 8. book7 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book7.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 9. book8 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book8.webp?v=resized" alt="Michiyo's Book">
                 </a>
+                <!-- 10. book9 -->
                 <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
                     target="_blank" rel="noopener noreferrer" class="book-item">
                     <img src="images/book9.webp?v=resized" alt="Michiyo's Book">
                 </a>
-                <a href="https://www.amazon.co.jp/stores/%E3%81%BF%E3%81%A1%E3%82%88/author/B005L8V05K?ref=sr_ntt_srch_lnk_2&qid=1768995559&sr=8-2&shoppingPortalEnabled=true"
-                    target="_blank" rel="noopener noreferrer" class="book-item">
-                    <img src="images/book11.jpg?v=resized" alt="Michiyo's Book">
+                <!-- 11. ハートで天使とつながる方法 (book10.webp) -->
+                <a href="https://amzn.to/3Wz5k1N" target="_blank" rel="noopener noreferrer" class="book-item">
+                    <img src="images/book10.webp?v=resized" alt="ハートで天使とつながる方法">
                 </a>
             </div>
         </div>

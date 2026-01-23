@@ -173,8 +173,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    animation: fadeInImage 1.5s ease-out 0.3s forwards;
+}
+
+@media (min-width: 1281px) {
+    .hero-image-wrapper {
+        opacity: 0;
+        animation: fadeInImage 1.5s ease-out 0.3s forwards;
+    }
 }
 
 .hero-image {
@@ -203,8 +208,13 @@ body {
     max-width: 600px;
     padding: 0 40px;
     margin-left: 8%;
-    opacity: 0;
-    animation: fadeInUp 1.2s ease-out 0.8s forwards;
+}
+
+@media (min-width: 1281px) {
+    .hero-content {
+        opacity: 0;
+        animation: fadeInUp 1.2s ease-out 0.8s forwards;
+    }
 }
 
 .hero-title {
@@ -228,11 +238,16 @@ body {
     font-size: 64px;
     color: var(--color-text);
     margin: 16px 0 24px;
-    opacity: 0;
-    clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
-    animation: drawSignature 2s ease-in-out 1.2s forwards, fadeIn 0.5s ease-out 1.2s forwards;
     transform: rotate(-3deg);
     transform-origin: left center;
+}
+
+@media (min-width: 1281px) {
+    .hero-signature {
+        opacity: 0;
+        clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+        animation: drawSignature 2s ease-in-out 1.2s forwards, fadeIn 0.5s ease-out 1.2s forwards;
+    }
 }
 
 @keyframes drawSignature {
@@ -251,8 +266,13 @@ body {
     letter-spacing: 0.2em;
     color: var(--color-text);
     font-weight: 400;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 2.5s forwards;
+}
+
+@media (min-width: 1281px) {
+    .hero-subtitle {
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 2.5s forwards;
+    }
 }
 
 .scroll-indicator {
@@ -263,10 +283,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    opacity: 0;
-    animation: fadeIn 1s ease-out 1.5s forwards;
     z-index: 10;
     padding-left: 40px;
+}
+
+@media (min-width: 1281px) {
+    .scroll-indicator {
+        opacity: 0;
+        animation: fadeIn 1s ease-out 1.5s forwards;
+    }
 }
 
 .scroll-indicator span {
@@ -1301,6 +1326,7 @@ section {
 .healer-card a:hover {
     text-decoration: underline;
 }
+
 /* Events & Seminar Layout */
 .events-layout {
     display: flex;
@@ -1322,7 +1348,7 @@ section {
     .events-layout {
         flex-direction: column;
     }
-    
+
     .events-image {
         max-width: 100%;
         width: 100%;
@@ -1351,7 +1377,8 @@ section {
 
 .events-image-wrapper {
     position: relative;
-    padding-top: 133%; /* Aspect ratio to match about image if needed, or just contain the image */
+    padding-top: 133%;
+    /* Aspect ratio to match about image if needed, or just contain the image */
     width: 100%;
 }
 
@@ -1370,9 +1397,10 @@ section {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .events-image-wrapper {
-        padding-top: 75%; /* Landscape for mobile */
+        padding-top: 75%;
+        /* Landscape for mobile */
     }
 }
 
@@ -1388,5 +1416,130 @@ section {
     .events-content-reverse {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+}
+
+/* ===================================
+   レスポンシブ調整: ヒーローセクション
+   文字が顔にかからないように位置を下げる
+   =================================== */
+/* ===================================
+   レスポンシブ調整: ヒーローセクション
+   文字が顔にかからないように位置を下げる（アニメーション無効化・強制配置）
+   =================================== */
+@media screen and (max-width: 1280px) {
+    .hero {
+        display: block !important;
+        position: relative !important;
+        height: 100vh !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* 画像とラッパーの強制配置 */
+    .hero-image-wrapper {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 1 !important;
+        /* アニメーション待機状態を解除 */
+        animation: none !important;
+        /* アニメーション完全無効化 */
+        z-index: 1 !important;
+    }
+
+    .hero-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center 15% !important;
+        /* 顔（画面上部）を中心に */
+    }
+
+    /* オーバーレイ調整 */
+    .hero-overlay {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(to top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 50%) !important;
+        /* 下部を少し白くして文字を見やすく */
+        z-index: 2 !important;
+    }
+
+    /* コンテンツの強制配置 */
+    .hero-content {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 40px 60px 40px !important;
+
+        /* アニメーション関連を全てリセット */
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+
+        text-align: center !important;
+        /* スマホでは中央揃えの方が見やすいかも？一旦左でいくがご要望あれば */
+        text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9), 0 0 15px rgba(255, 255, 255, 0.8) !important;
+        z-index: 100 !important;
+    }
+
+    /* 個別要素のアニメーションも無効化 */
+    .hero-title,
+    .hero-signature,
+    .hero-subtitle {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        clip-path: none !important;
+        /* サインアニメーションのクリップパス解除 */
+    }
+
+    .scroll-indicator {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-image {
+        /* スマホ調整: 顔をもっと確実に表示 */
+        object-position: center 12% !important;
+    }
+
+    .hero-content {
+        padding: 0 24px 40px 24px !important;
+        text-align: left !important;
+        /* 左揃え維持 */
+    }
+
+    .hero-title {
+        font-size: 24px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .hero-signature {
+        font-size: 36px !important;
+        margin: 0 0 12px 0 !important;
+    }
+
+    .hero-subtitle {
+        font-size: 11px !important;
+        color: var(--color-text) !important;
     }
 }
