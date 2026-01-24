@@ -1404,8 +1404,8 @@ section {
    レスポンシブ調整: ヒーローセクション
    文字が顔にかからないように位置を下げる（アニメーション無効化・強制配置）
    =================================== */
-/* iPad/タブレット専用（769px～1024px）: 文字を大きく表示 */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+/* iPad/タブレット専用（769px～834px）: 文字を大きく表示 */
+@media screen and (min-width: 769px) and (max-width: 834px) {
     .hero {
         display: block !important;
         position: relative !important;
