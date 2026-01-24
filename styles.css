@@ -1404,8 +1404,8 @@ section {
    レスポンシブ調整: ヒーローセクション
    文字が顔にかからないように位置を下げる（アニメーション無効化・強制配置）
    =================================== */
-/* iPad/タブレット専用（769px～834px）: 文字を大きく表示 */
-@media screen and (min-width: 769px) and (max-width: 834px) {
+/* レスポンシブ調整: iPad/タブレット（1024px以下） */
+@media screen and (max-width: 1024px) {
     .hero {
         display: block !important;
         position: relative !important;
@@ -1425,9 +1425,7 @@ section {
         width: 100% !important;
         height: 100% !important;
         opacity: 1 !important;
-        /* アニメーション待機状態を解除 */
         animation: none !important;
-        /* アニメーション完全無効化 */
         z-index: 1 !important;
     }
 
@@ -1436,7 +1434,6 @@ section {
         height: 100% !important;
         object-fit: cover !important;
         object-position: center 15% !important;
-        /* 顔（画面上部）を中心に */
     }
 
     /* オーバーレイ調整 */
@@ -1447,7 +1444,6 @@ section {
         width: 100% !important;
         height: 100% !important;
         background: linear-gradient(to top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 50%) !important;
-        /* 下部を少し白くして文字を見やすく */
         z-index: 2 !important;
     }
 
@@ -1461,7 +1457,7 @@ section {
         width: 100% !important;
         max-width: none !important;
         margin: 0 !important;
-        padding: 0 40px 60px 40px !important;
+        padding: 0 40px 80px 40px !important;
 
         /* アニメーション関連を全てリセット */
         opacity: 1 !important;
@@ -1470,19 +1466,18 @@ section {
         transition: none !important;
 
         text-align: center !important;
-        /* スマホでは中央揃えの方が見やすいかも？一旦左でいくがご要望あれば */
         text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9), 0 0 15px rgba(255, 255, 255, 0.8) !important;
         z-index: 100 !important;
     }
 
-    /* 個別要素のアニメーションも無効化 + サイズ調整 */
+    /* 文字サイズの調整 */
     .hero-title {
         opacity: 1 !important;
         transform: none !important;
         animation: none !important;
-        font-size: 56px !important;
-        /* iPadではっきり大きく見えるサイズに */
-        line-height: 1.2 !important;
+        font-size: 52px !important;
+        /* iPadで見やすいサイズ */
+        line-height: 1.3 !important;
         margin-bottom: 20px !important;
     }
 
@@ -1491,7 +1486,7 @@ section {
         transform: none !important;
         animation: none !important;
         clip-path: none !important;
-        font-size: 80px !important;
+        font-size: 70px !important;
         margin: 0 0 24px 0 !important;
     }
 
@@ -1499,7 +1494,7 @@ section {
         opacity: 1 !important;
         transform: none !important;
         animation: none !important;
-        font-size: 16px !important;
+        font-size: 15px !important;
     }
 
     .scroll-indicator {
