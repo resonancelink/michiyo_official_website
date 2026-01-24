@@ -1404,7 +1404,8 @@ section {
    レスポンシブ調整: ヒーローセクション
    文字が顔にかからないように位置を下げる（アニメーション無効化・強制配置）
    =================================== */
-@media screen and (max-width: 1024px) {
+/* PCを除外し、iPadなどのタッチデバイスにのみ適用（マウス操作ができる端末は除外されます） */
+@media screen and (max-width: 1366px) and (hover: none) {
     .hero {
         display: block !important;
         position: relative !important;
