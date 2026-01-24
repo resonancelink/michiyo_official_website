@@ -1415,15 +1415,20 @@ section {
     }
 
     .hero-image {
-        /* 顔の位置を上に（中心より少し上）に設定して、下のスペースを空ける */
+        /* 顔の位置を上にキープ */
         object-position: 50% 20%;
     }
 
-    /* コンテンツを画面下部に配置 */
+    /* scrollインジケーターを非表示にしてスペースを確保 */
+    .scroll-indicator {
+        display: none !important;
+    }
+
+    /* コンテンツをさらに下に配置 */
     .hero-content {
         position: absolute;
-        bottom: 100px;
-        /* 下からの位置 */
+        bottom: 30px;
+        /* 下からの位置を大幅に下げる (100px -> 30px) */
         left: 40px;
         right: 40px;
         top: auto;
@@ -1434,9 +1439,6 @@ section {
         padding: 0;
         text-align: left;
         /* 左揃え */
-
-        /* transformの影響をリセットする必要がある場合はここで */
-        /* opacityはanimationで制御されているためいじらない方が無難だが、表示されない場合は !important で強制表示も検討 */
     }
 
     /* タイトルサイズ調整 */
@@ -1462,12 +1464,12 @@ section {
 /* スマホ (768px以下) */
 @media screen and (max-width: 768px) {
     .hero-image {
-        /* スマホ縦長画面用に顔位置を更に調整 */
         object-position: 55% 15%;
     }
 
     .hero-content {
-        bottom: 80px;
+        bottom: 20px;
+        /* スマホもさらに下げる */
         left: 24px;
         right: 24px;
         text-align: left;
