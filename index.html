@@ -13,7 +13,19 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Pinyon+Script&display=swap"
         rel="stylesheet">
+    <style>
+        /* Hero CTAを写真の上でもはっきり見せるための背景付きボタン */
+        .hero-cta-btn {
+            background: var(--color-white);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            font-weight: 700;
+        }
 
+        .hero-cta-btn:hover {
+            background: var(--color-gold);
+            color: var(--color-white);
+        }
+    </style>
 </head>
 
 <body>
@@ -49,10 +61,9 @@
             </h1>
             <div class="hero-signature">Michiyo</div>
             <p class="hero-subtitle">Spiritual Counsellor / Writer / Messenger</p>
-            <div class="hero-cta-wrapper"
-                style="margin-top: 32px; opacity: 0; animation: fadeInUp 1s ease-out 3s forwards;">
+            <div class="hero-cta-wrapper" style="margin-top: 32px;">
                 <a href="https://michiyospiritualcounsellor.substack.com/?utm_campaign=pub&utm_medium=web"
-                    target="_blank" rel="noopener noreferrer" class="btn-outline">
+                    target="_blank" rel="noopener noreferrer" class="btn-outline hero-cta-btn">
                     メールマガジンを登録する(無料)
                 </a>
             </div>
@@ -316,7 +327,7 @@
             </div>
 
             <p style="text-align: center; line-height: 1.9; margin-bottom: 60px;">
-                Substackにて新連載『AIに悩みを話せる時代に、それでも自分と対話する理由』連載中(毎週土曜配信)<br>
+                Substackにて新連載『AIに悩みを話せる時代に、それでも自分と対話する理由』毎週土曜配信<br>
                 <a href="https://michiyospiritualcounsellor.substack.com/?utm_campaign=pub&utm_medium=web"
                     target="_blank" rel="noopener noreferrer" class="btn-outline"
                     style="margin-top: 16px; display: inline-block;">Read on Substack</a>
